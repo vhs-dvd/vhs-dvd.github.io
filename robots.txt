@@ -1,0 +1,30 @@
+# Robots.txt for vhs-dvd.org.ua
+# Оцифровка відеокасет — Професійна оцифровка VHS, MiniDV, Hi8, Betacam SP
+
+User-agent: *
+Allow: /
+# /images/ залишається відкритим — Google має бачити og-image.jpg для превью в соцмережах
+
+# Sitemaps
+Sitemap: https://vhs-dvd.org.ua/sitemap.xml
+
+# Crawl-delay for polite bots (optional)
+User-agent: Bingbot
+Crawl-delay: 2
+
+# Block AI scrapers from training data (optional)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+# Allow search engines to index all pages
+User-agent: Googlebot
+Allow: /
+
+User-agent: Yandex
+Allow: /

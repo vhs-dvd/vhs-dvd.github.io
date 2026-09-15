@@ -1,0 +1,47 @@
+{
+  "phones": [
+    { "number": "(093) 936-25-77", "tel": "+380939362577" },
+    { "number": "(066) 758-48-25", "tel": "+380667584825" },
+    { "number": "(068) 470-16-25", "tel": "+380684701625" }
+  ],
+  "telegram": {
+    "url": "https://t.me/vhsdvd",
+    "label": "Telegram чат",
+    "channelUrl": "https://t.me/ocyfrovka",
+    "channelLabel": "Telegram канал"
+  },
+  "schedule": {
+    "weekdays": "Пн–Пт: 12:00 – 18:00",
+    "weekends": "Сб–Нд: за домовленістю"
+  },
+  "address": {
+    "full": "Київ, ст. м. Виставковий Центр, вул. Васильківська 55 (VPS Group)",
+    "short": "Київ, ст. м. Виставковий Центр, вул. Васильківська 55"
+  },
+  "pricing": [
+    { "format": "VHS, VHS-C", "price": "240", "unit": "/год", "tag": "Топ" },
+    { "format": "Hi8, Video8, Digital8", "price": "240", "unit": "/год", "tag": "" },
+    { "format": "MiniDV", "price": "240", "unit": "/год", "tag": "" },
+    { "format": "Аудіо касети / Mini", "price": "240", "unit": "/год", "tag": "" },
+    { "format": "Магнітні аудіо бобіни", "price": "240", "unit": "/год", "tag": "" },
+    { "format": "Betacam SP", "price": "400", "unit": "/год", "tag": "Студійний" },
+    { "format": "MiniDisc (MD)", "price": "240", "unit": "/год", "tag": "" },
+    { "format": "Сканування фото / плівки / слайдів", "price": "10", "unit": "/кадр", "tag": "" }
+  ],
+  "extras": [
+    { "title": "Експорт на DVD", "description": "Запис на DVD-диск або імпорт даних з/на DVD", "price": "50 грн" },
+    { "title": "Диск DVD-R 4.7Gb", "description": "Verbatim DVD-R диск для запису", "price": "50 грн/шт" },
+    { "title": "Зберігання даних 14 днів", "description": "Безкоштовне зберігання оцифрованих файлів на сервері протягом 14 днів", "price": "включено" },
+    { "title": "Зберігання ваших даних 14 днів", "description": "Зберігаємо файли на захищеному сервері", "price": "включено" }
+  ],
+  "social": {
+    "telegram": "https://t.me/ocyfrovka",
+    "youtube": "https://www.youtube.com/@ocyfrovka",
+    "facebook": "https://www.facebook.com/groups/ocyfrovka",
+    "instagram": "https://www.instagram.com/"
+  },
+  "stats": {
+    "clients": "10 000+",
+    "labelClients": "клієнтів"
+  }
+}

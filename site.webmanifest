@@ -1,0 +1,14 @@
+{
+  "name": "VHS-DVD.ORG.UA — Оцифровка відеокасет",
+  "short_name": "vhs-dvd",
+  "description": "Професійна оцифровка відео та аудіо касет у Києві з 2009 року",
+  "lang": "uk",
+  "icons": [
+    { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#FAF8F5",
+  "background_color": "#FAF8F5",
+  "display": "browser",
+  "start_url": "/"
+}

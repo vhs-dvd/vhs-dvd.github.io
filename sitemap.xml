@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Головна сторінка -->
+  <url>
+    <loc>https://vhs-dvd.org.ua/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Ціни на оцифровку (окрема сторінка) -->
+  <url>
+    <loc>https://vhs-dvd.org.ua/ocyfrovka-video-kyiv.html</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Оцифровка VHS / VHS-C -->
+  <url>
+    <loc>https://vhs-dvd.org.ua/ocyfrovka-vhs.html</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Оцифровка MiniDV -->
+  <url>
+    <loc>https://vhs-dvd.org.ua/ocyfrovka-minidv.html</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Оцифровка Hi8 / Video8 / Digital8 -->
+  <url>
+    <loc>https://vhs-dvd.org.ua/ocyfrovka-hi8.html</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Оцифровка аудіо касет -->
+  <url>
+    <loc>https://vhs-dvd.org.ua/ocyfrovka-audio.html</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Оцифровка магнітних аудіо бобін -->
+  <url>
+    <loc>https://vhs-dvd.org.ua/ocyfrovka-bobina.html</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Оцифровка Betacam SP -->
+  <url>
+    <loc>https://vhs-dvd.org.ua/ocyfrovka-betacam.html</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Оцифровка MiniDisc (MD) -->
+  <url>
+    <loc>https://vhs-dvd.org.ua/ocyfrovka-minidisc.html</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Сканування фото / плівки / слайдів -->
+  <url>
+    <loc>https://vhs-dvd.org.ua/skanuvannia-foto-ta-slaidiv.html</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
