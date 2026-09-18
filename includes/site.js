@@ -332,13 +332,12 @@
     }
   }
 
-  /* ---------- 3b. ЦІНА В META-ОПИСАХ (og:description тощо) ----------
-     Шукає у description/og:description/twitter:description шаблони "240 ₴/год",
-     "240 грн/год", "10 ₴/кадр" і підставляє актуальні ціни з config.json.
-     На сторінках конкретного формату (data-format на <body>) береться ціна
-     саме цього формату: на сторінці Betacam — ціна Betacam, на фото — ціна кадру.
-     Також оновлює offers.price у JSON-LD (structured data для Google). */
-  function updateMetaPrices(cfg) {
+  /* ---------- 3b. МЕТА-ОПИСИ ----------
+     Мета-теги (description/og/twitter) більше НЕ містять цін — вони статичні
+     і «вічні». Ціни живуть лише у таблиці цін (config.json) та у видимому
+     контенті, тому зміна ціни не потребує правок HTML і не розсинхронізується. */
+  function updateMetaPrices(cfg) { /* вимкнено — цін у мета-тегах більше немає */ }
+  function _unusedUpdateMetaPrices(cfg) {
     var rows = (cfg && cfg.pricing) || [];
     var pick = function(re) {
       for (var i = 0; i < rows.length; i++) if (re.test(rows[i].format)) return rows[i];
