@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ціни на оцифровку відеокасет у Києві — VHS, MiniDV, Hi8 | vhs-dvd.org.ua</title>
+  <title>Оцифровка відеокасет ціна - Київ</title>
   <meta name="description" content="Професійна оцифровка відеокасет VHS, VHS-C, Hi8, MiniDV, Betacam SP у Києві. Працюємо з усією Україною. 240 грн/год.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="theme-color" content="#FAF8F5">
@@ -129,6 +129,54 @@
       font-size: 1rem; color: var(--text-secondary);
     }
 
+    /* ===== PHONE BUTTONS (як на головній) ===== */
+    .hero-phones {
+      display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+      justify-content: center;
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      max-width: 760px; margin-left: auto; margin-right: auto;
+    }
+    .hero-phones .phone-btn,
+    .hero-phones .btn-telegram { min-width: 182px; box-sizing: border-box; }
+    .phone-btn {
+      display: inline-flex; align-items: center; gap: 6px; justify-content: center;
+      background: var(--bg-card); border: 1.5px solid var(--border-card);
+      padding: 10px 20px; border-radius: 50px;
+      text-decoration: none; color: var(--text-secondary);
+      font-size: 0.95rem; font-weight: 600;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .phone-btn:hover {
+      border-color: var(--accent); color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(107,45,62,0.08);
+    }
+    .phone-btn:active { transform: scale(0.97); }
+    .phone-icon { font-size: 0.75rem; display: flex; align-items: center; }
+    .phone-icon svg { width: 14px; height: 14px; }
+    .phone-number { white-space: nowrap; }
+    .btn-telegram {
+      display: inline-flex; align-items: center; gap: 6px; justify-content: center;
+      background: var(--bg-card); border: 1.5px solid var(--border-card);
+      padding: 10px 20px; border-radius: 50px;
+      text-decoration: none; color: #229ED9;
+      font-size: 0.95rem; font-weight: 600;
+      cursor: pointer; transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative; overflow: hidden;
+    }
+    .btn-telegram::after {
+      content: ''; position: absolute; top: 50%; left: 50%;
+      width: 0; height: 0;
+      background: rgba(255,255,255,0.15); border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.5s, height 0.5s;
+    }
+    .btn-telegram:hover::after { width: 300px; height: 300px; }
+    .btn-telegram:hover { border-color: #229ED9; background: #f0fbfe; transform: translateY(-1px); }
+    .btn-telegram:active { transform: scale(0.97); }
+
     /* ===== SECTIONS ===== */
     .section { padding: 60px 24px; }
     .section-header { margin-bottom: 40px; }
@@ -248,6 +296,9 @@
     }
 
     @media (max-width: 480px) {
+      .hero-phones { gap: 8px; }
+      .hero-phones .phone-btn,
+      .hero-phones .btn-telegram { font-size: 0.72rem; padding: 6px 10px; min-width: 148px; }
       .logo-text { font-size: 1.05rem; }
       .logo-img { height: 28px; }
       .pricing-note { flex-direction: column; align-items: flex-start; gap: 6px; }
@@ -266,6 +317,26 @@
     <div class="section-eyebrow">Оцифровка відеокасет у Києві</div>
     <h1>Ціни на <span class="accent">оцифровку відео</span> касет</h1>
     <p>Прозора вартість без прихованих платежів. Оцифровуємо VHS, VHS-C, Hi8, MiniDV, Betacam SP та аудіокасети. Працюємо з усією Україною через Нову Пошту.</p>
+
+    <!-- Кнопки телефонів + Telegram (дані з config.json: includes/site.js) -->
+    <div class="hero-phones" data-config="hero-phones">
+      <a href="tel:+380939362577" class="phone-btn">
+        <span class="phone-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+        <span class="phone-number">(093) 936-25-77</span>
+      </a>
+      <a href="tel:+380667584825" class="phone-btn">
+        <span class="phone-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+        <span class="phone-number">(066) 758-48-25</span>
+      </a>
+      <a href="tel:+380684701625" class="phone-btn">
+        <span class="phone-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+        <span class="phone-number">(068) 470-16-25</span>
+      </a>
+      <a href="https://t.me/vhsdvd" target="_blank" class="btn-telegram" data-config="hero-telegram">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
+        Telegram чат
+      </a>
+    </div>
   </section>
 
   <!-- PRICING (дані з config.json) -->

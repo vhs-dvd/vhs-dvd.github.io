@@ -1,5 +1,7 @@
 $root = "C:\Users\Ihor\Documents\vhs-dvd"
 $port = 8765
+# Серверна підстановка цін з config.json у HTML (meta-теги, JSON-LD)
+. "C:\Users\Ihor\Documents\vhs-dvd\includes\prices.ps1"
 $listener = New-Object System.Net.HttpListener
 $listener.Prefixes.Add("http://127.0.0.1:$port/")
 $listener.Start()
@@ -28,7 +30,13 @@ while ($listener.IsListening) {
       $ext = [System.IO.Path]::GetExtension($file).ToLower()
       if ($mime.ContainsKey($ext)) { $ctx.Response.ContentType = $mime[$ext] } else { $ctx.Response.ContentType = "application/octet-stream" }
       $ctx.Response.Headers.Add("Cache-Control", "no-cache")
-      $bytes = [System.IO.File]::ReadAllBytes($file)
+      if ($ext -eq ".html") {
+        # Віддаємо сторінку з АКТУАЛЬНИМИ цінами з config.json (не з статичного тексту у файлі)
+        $html = Update-PagePrices -Html ([System.IO.File]::ReadAllText($file, [System.Text.Encoding]::UTF8)) -Root $root
+        $bytes = [System.Text.Encoding]::UTF8.GetBytes($html)
+      } else {
+        $bytes = [System.IO.File]::ReadAllBytes($file)
+      }
       $ctx.Response.ContentLength64 = $bytes.Length
       $ctx.Response.OutputStream.Write($bytes, 0, $bytes.Length)
     } else {
