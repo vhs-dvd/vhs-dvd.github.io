@@ -25,7 +25,7 @@
     { "format": "Аудіо касети / Mini", "price": "240", "unit": "/год", "tag": "" },
     { "format": "Магнітні аудіо бобіни", "price": "240", "unit": "/год", "tag": "" },
     { "format": "Betacam SP", "price": "400", "unit": "/год", "tag": "Студійний" },
-    { "format": "MiniDisc (MD)", "price": "240", "unit": "/год", "tag": "" },
+    { "format": "MiniDisc (MD)", "price": "300", "unit": "/год", "tag": "" },
     { "format": "Сканування фото / плівки / слайдів", "price": "10", "unit": "/кадр", "tag": "" }
   ],
   "extras": [
