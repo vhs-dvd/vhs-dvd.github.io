@@ -14,11 +14,20 @@
 (function() {
   'use strict';
 
+  /* ---------- 0. БАЗОВИЙ ШЛЯХ САЙТУ ----------
+     Визначається з URL самого скрипта (.../includes/site.js),
+     тому однаково працює і з кореня, і з підпапок (наприклад /otsyfrovka-video-kyiv/). */
+  var BASE = (function() {
+    var s = document.currentScript || document.getElementsByTagName('script')[document.getElementsByTagName('script').length - 1];
+    var m = (s && s.src ? s.src : '').match(/^(.*)\/includes\//);
+    return m ? m[1] + '/' : '/';
+  })();
+
   /* ---------- 1. ВСТАВЛЕННЯ ШАПКИ ТА ПІДВАЛА ---------- */
   function injectInclude(name) {
     var host = document.querySelector('[data-include="' + name + '"]');
     if (!host) return Promise.resolve();
-    return fetch('includes/' + name + '.html', { cache: 'no-store' })
+    return fetch(BASE + 'includes/' + name + '.html', { cache: 'no-store' })
       .then(function(r) {
         if (!r.ok) throw new Error(name + ': HTTP ' + r.status);
         return r.text();
@@ -28,7 +37,20 @@
         // На підсторінках якірні посилання (#services тощо) ведуть на головну
         if (!document.getElementById('services')) {
           host.querySelectorAll('a[href^="#"]').forEach(function(a) {
-            a.setAttribute('href', 'index.html' + a.getAttribute('href'));
+            a.setAttribute('href', BASE + 'index.html' + a.getAttribute('href'));
+          });
+        }
+        // Якщо сторінка відкрита з підпапки — піднімаємо відносні шляхи до кореня сайту
+        if (BASE !== '/') {
+          host.querySelectorAll('img[src]').forEach(function(im) {
+            var src = im.getAttribute('src');
+            if (!/^(https?:|\/|data:)/.test(src)) im.setAttribute('src', BASE + src);
+          });
+          host.querySelectorAll('a[href]').forEach(function(a) {
+            var h = a.getAttribute('href');
+            if (/^(https?:|\/|#|mailto:|tel:)/.test(h)) return;
+            if (h.indexOf(BASE) === 0) return;
+            a.setAttribute('href', BASE + h);
           });
         }
       })
@@ -68,6 +90,17 @@
     if (cy) cy.textContent = new Date().getFullYear();
     var ye = document.getElementById('yearsExp');
     if (ye) ye.textContent = new Date().getFullYear() - 2009;
+
+    // Дата актуальності цін біля заголовка "Ціни та послуги"
+    var pd = document.getElementById('pricingDate');
+    if (pd) {
+      try {
+        pd.textContent = '(актуальні на ' + new Date().toLocaleDateString('uk-UA') + ')';
+      } catch (e) {
+        var d = new Date();
+        pd.textContent = '(актуальні на ' + ('0' + d.getDate()).slice(-2) + '.' + ('0' + (d.getMonth() + 1)).slice(-2) + '.' + d.getFullYear() + ')';
+      }
+    }
 
     // Плавна поява блоків (в т.ч. кроки "Порядок роботи")
     var reveals = document.querySelectorAll('.reveal, .steps-grid .step');
@@ -263,14 +296,14 @@
       };
       // Сторінка послуги для кожного рядка таблиці цін
       var rowLink = {
-        'vhs': 'ocyfrovka-vhs.html',
-        'hi8': 'ocyfrovka-hi8.html',
-        'minidv': 'ocyfrovka-minidv.html',
-        'betacam': 'ocyfrovka-betacam.html',
-        'audio': 'ocyfrovka-audio.html',
-        'bobina': 'ocyfrovka-bobina.html',
-        'minidisc': 'ocyfrovka-minidisc.html',
-        'photo': 'skanuvannia-foto-ta-slaidiv.html'
+        'vhs': BASE + 'ocyfrovka-vhs.html',
+        'hi8': BASE + 'ocyfrovka-hi8.html',
+        'minidv': BASE + 'ocyfrovka-minidv.html',
+        'betacam': BASE + 'ocyfrovka-betacam.html',
+        'audio': BASE + 'ocyfrovka-audio.html',
+        'bobina': BASE + 'ocyfrovka-bobina.html',
+        'minidisc': BASE + 'ocyfrovka-minidisc.html',
+        'photo': BASE + 'skanuvannia-foto-ta-slaidiv.html'
       };
       var tapeSvg = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="8" cy="12" r="2"/><circle cx="16" cy="12" r="2"/></svg>';
       var reelSvg = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/></svg>';
@@ -299,6 +332,72 @@
     }
   }
 
+  /* ---------- 3b. ЦІНА В META-ОПИСАХ (og:description тощо) ----------
+     Шукає у description/og:description/twitter:description шаблони "240 ₴/год",
+     "240 грн/год", "10 ₴/кадр" і підставляє актуальні ціни з config.json.
+     На сторінках конкретного формату (data-format на <body>) береться ціна
+     саме цього формату: на сторінці Betacam — ціна Betacam, на фото — ціна кадру.
+     Також оновлює offers.price у JSON-LD (structured data для Google). */
+  function updateMetaPrices(cfg) {
+    var rows = (cfg && cfg.pricing) || [];
+    var pick = function(re) {
+      for (var i = 0; i < rows.length; i++) if (re.test(rows[i].format)) return rows[i];
+      return null;
+    };
+
+    // Рядок конфіга, що відповідає формату цієї сторінки (data-format на <body>)
+    var pageFormat = (document.body && document.body.getAttribute('data-format')) || '';
+    var fmtRe = {
+      vhs: /vhs/i, hi8: /hi8|video8|digital8/i, minidv: /minidv/i,
+      audio: /аудіо касети/i, bobina: /бобін/i, betacam: /betacam/i,
+      minidisc: /minidisc/i, photo: /сканування|фото/i
+    };
+    var own = pageFormat && fmtRe[pageFormat] ? pick(fmtRe[pageFormat]) : null;
+
+    var vhsRow   = pick(/vhs/i) || rows[0];
+    var photoRow = pick(/сканування|фото/i);
+
+    // Ціна для одиниці "год": спочатку рядок формату сторінки, інакше — ціна VHS
+    var priceFor = function(unit) {
+      if (own && own.unit && own.unit.indexOf(unit) !== -1) return String(own.price);
+      if (unit === 'кадр') return photoRow ? String(photoRow.price) : null;
+      return vhsRow ? String(vhsRow.price) : '240';
+    };
+
+    var priceRe = /(\d[\d\s]*)\s*(₴|грн)\s*\/\s*(год|кадр|шт)/g;
+    var repl = function(m, num, cur, unit) {
+      if (unit === 'шт') return m; // диски/штуки — не з таблиці цін касет
+      var p = priceFor(unit);
+      return p ? p + ' ' + cur + '/' + unit : m;
+    };
+
+    ['meta[name="description"]',
+     'meta[property="og:description"]',
+     'meta[name="twitter:description"]'
+    ].forEach(function(sel) {
+      document.querySelectorAll(sel).forEach(function(m) {
+        if (priceRe.test(m.content)) {
+          priceRe.lastIndex = 0; // глобальний регекс — скидаємо індекс перед кожним рядком
+          m.setAttribute('content', m.content.replace(priceRe, repl));
+        }
+      });
+    });
+
+    // JSON-LD: offers.price = ціна формату цієї сторінки (або ціна за годину)
+    var ownUnitPrice = own ? String(own.price) : (vhsRow ? String(vhsRow.price) : null);
+    if (ownUnitPrice) {
+      document.querySelectorAll('script[type="application/ld+json"]').forEach(function(s) {
+        try {
+          var obj = JSON.parse(s.textContent);
+          if (obj && obj.offers && obj.offers.price !== undefined) {
+            obj.offers.price = ownUnitPrice;
+            s.textContent = JSON.stringify(obj, null, 2);
+          }
+        } catch (e) { /* пошкоджений JSON-LD — пропускаємо */ }
+      });
+    }
+  }
+
   /* ---------- ЗАПУСК ---------- */
   function boot() {
     // Розблокування звуку першою взаємодією (політика автоплею браузерів)
@@ -311,14 +410,14 @@
     var includesReady = Promise.all([injectInclude('header'), injectInclude('footer')])
       .then(initBehaviour);
 
-    var configReady = fetch('config.json?t=' + Date.now(), { cache: 'no-store' })
+    var configReady = fetch(BASE + 'config.json?t=' + Date.now(), { cache: 'no-store' })
       .then(function(r) {
         if (!r.ok) throw new Error('HTTP ' + r.status);
         return r.json();
       });
 
     Promise.all([includesReady, configReady])
-      .then(function(results) { applyConfig(results[1]); })
+      .then(function(results) { applyConfig(results[1]); updateMetaPrices(results[1]); })
       .catch(function(err) {
         console.error('Помилка завантаження config.json — дані на сторінці не оновлено. Перевірте синтаксис JSON:', err);
       });

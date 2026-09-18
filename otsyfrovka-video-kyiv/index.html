@@ -1,17 +1,312 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Meta refresh на корінь домену -->
-    <meta http-equiv="refresh" content="0; url=/index.html">
-    <title>Перенаправлення...</title>
-    <script>
-        // JS-перенаправлення в корінь домену
-        window.location.href = "/index.html";
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ціни на оцифровку відеокасет у Києві — VHS, MiniDV, Hi8 | vhs-dvd.org.ua</title>
+  <meta name="description" content="Професійна оцифровка відеокасет VHS, VHS-C, Hi8, MiniDV, Betacam SP у Києві. Працюємо з усією Україною. 240 грн/год.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="theme-color" content="#FAF8F5">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="canonical" href="https://vhs-dvd.org.ua/otsyfrovka-video-kyiv/">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vhs-dvd.org.ua/otsyfrovka-video-kyiv/">
+  <meta property="og:title" content="Ціни на оцифровку відеокасет у Києві — VHS, MiniDV, Hi8">
+  <meta property="og:description" content="Професійна оцифровка відеокасет VHS, VHS-C, Hi8, MiniDV, Betacam SP у Києві. Працюємо з усією Україною. 240 грн/год.">
+  <meta property="og:image" content="https://vhs-dvd.org.ua/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="uk_UA">
+  <meta property="og:site_name" content="VHS-DVD.ORG.UA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ціни на оцифровку відеокасет у Києві — VHS, MiniDV, Hi8 | vhs-dvd.org.ua">
+  <meta name="twitter:description" content="Професійна оцифровка відеокасет VHS, VHS-C, Hi8, MiniDV, Betacam SP у Києві. Працюємо з усією Україною. 240 грн/год.">
+  <meta name="twitter:image" content="https://vhs-dvd.org.ua/images/og-image.jpg">
+  <!-- Structured Data: Service + Prices (статичний фолбек для пошуковиків; живі ціни — з config.json) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Оцифровка відеокасет",
+    "serviceType": "Оцифровка відео та аудіо касет",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "VHS-DVD.ORG.UA — Оцифровка відеокасет",
+      "url": "https://vhs-dvd.org.ua",
+      "telephone": "+380939362577",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Київ",
+        "addressCountry": "UA"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Україна"
+      }
+    },
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "UAH",
+      "price": "240",
+      "description": "Оцифровка VHS, VHS-C, Hi8, Video8 за годину"
+    }
+  }
+  </script>
+  <!-- Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Головна", "item": "https://vhs-dvd.org.ua/" },
+      { "@type": "ListItem", "position": 2, "name": "Ціни на оцифровку", "item": "https://vhs-dvd.org.ua/otsyfrovka-video-kyiv/" }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Unbounded:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #FAF8F5;
+      --bg-card: #FFFFFF;
+      --text: #1A1517;
+      --text-secondary: #5C5558;
+      --text-muted: #8E878A;
+      --accent: #c62626;
+      --accent-hover: #7E3549;
+      --pink-soft: #D6E8F0;
+      --pink-bg: #F0F6FA;
+      --border: rgba(26,21,23,0.06);
+      --border-card: rgba(26,21,23,0.08);
+      --radius-xl: 24px;
+      --radius-md: 14px;
+      --max-w: 1120px;
+      --font: 'Manrope', -apple-system, sans-serif;
+      --font-display: 'Unbounded', 'Manrope', sans-serif;
+      --shadow-card: 0 1px 4px rgba(0,0,0,0.03), 0 4px 16px rgba(0,0,0,0.02);
+      --shadow-hover: 0 2px 8px rgba(0,0,0,0.05), 0 8px 32px rgba(0,0,0,0.04);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: var(--max-w); margin: 0 auto; }
+
+    /* Шапка: спільні стилі в includes/site.css */
+
+    /* ===== HERO ===== */
+    .hero {
+      padding: 140px 24px 60px;
+      background: linear-gradient(180deg, #D6E4EE 0%, #E2ECF1 60%, var(--bg) 100%);
+      text-align: center;
+    }
+    .hero .section-eyebrow { display: inline-block; }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      font-weight: 700; line-height: 1.15; letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .hero h1 .accent { color: var(--accent); }
+    .hero p {
+      max-width: 640px; margin: 0 auto;
+      font-size: 1rem; color: var(--text-secondary);
+    }
+
+    /* ===== SECTIONS ===== */
+    .section { padding: 60px 24px; }
+    .section-header { margin-bottom: 40px; }
+    .section-header.centered { text-align: center; }
+    .section-eyebrow {
+      font-size: 0.75rem; font-weight: 700; color: var(--accent);
+      text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 700; line-height: 1.12; letter-spacing: -0.02em;
+    }
+
+    /* ===== PRICING (same as index.html) ===== */
+    .pricing-section { background: linear-gradient(180deg, #D6E4EE 0%, #E2ECF1 40%, var(--bg) 100%); }
+    .pricing-card {
+      background: var(--bg-card); border: 1px solid var(--border-card);
+      border-radius: var(--radius-xl); overflow: hidden;
+      box-shadow: var(--shadow-card);
+    }
+    .pricing-row {
+      display: grid; grid-template-columns: 1fr auto;
+      padding: 20px 32px; align-items: center;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+    .pricing-row:last-child { border-bottom: none; }
+    a.pricing-row { text-decoration: none; color: inherit; cursor: pointer; }
+    .pricing-row:hover { background: var(--pink-bg); }
+    .pricing-row .fmt {
+      font-weight: 600; font-size: 0.92rem;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .pricing-row .fmt svg { flex-shrink: 0; }
+    .pricing-row .pr {
+      font-weight: 800; font-size: 1.2rem; color: #2B5B84;
+      white-space: nowrap;
+    }
+    .pricing-row .pr small {
+      font-weight: 500; font-size: 0.72rem; color: var(--text-muted);
+    }
+    .tag {
+      font-size: 0.65rem; font-weight: 700; padding: 3px 8px;
+      border-radius: 50px; background: var(--pink-bg);
+      color: var(--accent); border: 1px solid var(--pink-soft);
+    }
+    .pricing-extras {
+      margin-top: 20px;
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
+    }
+    .extra-item {
+      background: var(--bg-card); border: 1px solid var(--border-card);
+      border-radius: var(--radius-md); padding: 16px 20px;
+      display: grid; grid-template-columns: auto 1fr; column-gap: 14px;
+      align-items: center;
+      transition: all 0.25s;
+    }
+    .extra-item .ei-icon {
+      grid-row: 1 / span 2;
+      font-size: 1.3rem; flex-shrink: 0; display: flex;
+      align-items: center; justify-content: center;
+      width: 44px; height: 44px;
+    }
+    .ei-icon svg { opacity: 0.7; }
+    .extra-item h4 { grid-column: 2; font-size: 0.88rem; font-weight: 700; margin-bottom: 4px; }
+    .extra-item p { grid-column: 2; font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; }
+    .extra-item:hover { box-shadow: var(--shadow-hover); }
+    .extra-item .ei-price { color: var(--accent); font-weight: 700; }
+    .pricing-note {
+      margin-top: 18px; padding: 18px 24px;
+      background: var(--bg-card); border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 28px;
+    }
+    .pricing-note span {
+      font-size: 0.78rem; color: var(--text-muted);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .pricing-note span::before { content: '•'; color: var(--accent); font-weight: 700; }
+
+    /* ===== CTA ===== */
+    .cta-section { text-align: center; padding: 20px 24px 80px; }
+    .btn-primary {
+      background: var(--accent); color: #fff;
+      padding: 15px 34px; border-radius: 50px;
+      font-weight: 600; font-size: 0.95rem; border: none;
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
+      box-shadow: 0 2px 8px rgba(107,45,62,0.12);
+      transition: all 0.2s;
+    }
+    .btn-primary:hover {
+      box-shadow: 0 6px 24px rgba(107,45,62,0.2);
+      transform: translateY(-2px);
+      background: var(--accent-hover);
+    }
+
+    /* Підвал: спільні стилі в includes/site.css */
+
+    /* ===== REVEAL ANIMATION ===== */
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .pricing-extras .reveal:nth-child(1) { transition-delay: 0s; }
+    .pricing-extras .reveal:nth-child(2) { transition-delay: 0.06s; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .pricing-row { padding: 16px 20px; }
+      .pricing-row .fmt { font-size: 0.85rem; }
+      .pricing-row .pr { font-size: 1.05rem; }
+      .hero { padding: 120px 16px 40px; }
+    }
+
+    @media (max-width: 480px) {
+      .logo-text { font-size: 1.05rem; }
+      .logo-img { height: 28px; }
+      .pricing-note { flex-direction: column; align-items: flex-start; gap: 6px; }
+      .pricing-extras { grid-template-columns: 1fr; }
+    }
+  </style>
+  <link rel="stylesheet" href="../includes/site.css">
 </head>
-<body>
-    <p>Якщо перенаправлення не відбулося, <a href="/index.html">перейдіть на головну</a>.</p>
+<body data-format="vhs">
+
+  <!-- HEADER (спільна шапка: includes/header.html) -->
+  <div data-include="header"></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="section-eyebrow">Оцифровка відеокасет у Києві</div>
+    <h1>Ціни на <span class="accent">оцифровку відео</span> касет</h1>
+    <p>Прозора вартість без прихованих платежів. Оцифровуємо VHS, VHS-C, Hi8, MiniDV, Betacam SP та аудіокасети. Працюємо з усією Україною через Нову Пошту.</p>
+  </section>
+
+  <!-- PRICING (дані з config.json) -->
+  <section class="section pricing-section" id="pricing">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-eyebrow">Ціни та послуги <span id="pricingDate"></span></div>
+        <h2 class="section-title">Прозора вартість</h2>
+      </div>
+      <div class="pricing-card reveal" data-config="pricing">
+        <!-- рядки цін рендеряться з config.json -->
+      </div>
+      <div class="pricing-extras">
+        <div class="extra-item reveal">
+          <span class="ei-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></span>
+          <h4>Хмарне зберігання файлів</h4>
+          <p>Оцифроване відео записуємо на флешку або в хмару. Файли зберігаються на сервері 14 днів — <span class="ei-price">безкоштовно</span></p>
+        </div>
+        <div class="extra-item reveal">
+          <span class="ei-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/><path d="M17 7a6.5 6.5 0 0 1 1.8 3"/></svg></span>
+          <h4>DVD: запис та диски</h4>
+          <p>Запис або імпорт даних з/на DVD — <span class="ei-price">50 грн</span> • Диск Verbatim DVD-R 4.7Gb — <span class="ei-price">50 грн/шт</span></p>
+        </div>
+      </div>
+      <div class="pricing-note reveal">
+        <span>Термін — 1–4 робочі дні</span>
+        <span>Знижки оптовим замовникам</span>
+        <span>Доставка по Україні Новою Поштою</span>
+        <span>Мінімальне замовлення — 1 година</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section reveal">
+    <a href="../index.html#contact" class="btn-primary">Замовити оцифровку →</a>
+  </section>
+
+  <!-- FOOTER (спільний підвал: includes/footer.html) -->
+  <div data-include="footer"></div>
+
+  <script src="../includes/site.js" defer></script>
 </body>
 </html>
